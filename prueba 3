@@ -1,0 +1,126 @@
+import random 
+from datetime import datetime
+def verificar_patente(patente):
+    vocales="AEIOU"
+    if len(patente) !=6:
+            return 0
+    if patente[:4].isalpha() and patente(4:).isdigit() and not any
+(v in patente[:4].upper() for v in vocales):
+    return 1
+    if patente [:2].isalpha() and patente [2:].digit() and not any
+(v in patente[:2].upper() for v in vocales:):
+    return 0
+def grabar(datos,multas):
+    reistro=[]
+    registro.append(datos["tipo"])
+    registro.append(datos["patente"].upper())
+    registro.append(datos["marca"])
+    registro.append(datos["precio"])
+    registro.append(datos["dueño"])
+    registro.append(datos["fecha"])
+    registro.append(multas)
+    registro.append(ramdom.randint(1500,3500))
+    registro.append(ramdom.randint(1500,3500))
+    return registro
+def buscar(patente,registro):
+    patente=patente.upper()
+    lili=0
+    cont=1
+    for x in registro:
+        if patente==x[1]:
+            lili=1
+            print("\ntipo: ",x[0])
+            print("petente: ",x[1])
+            print("marca: ",x[2])
+            print("precio: ",x[3])
+            print("dueño: ",x[4])
+            print("fecha: ",x[3])
+            if len(x[6])==0:
+                print(" no hay multa en este vehiculo")
+            elif len (x[6])==1:
+                print(" su vehiculo tiene solo 1 multa")
+            else:
+                print("su vehiculo tiene mas multas")
+            for multa in x[6]:
+                if len (multa)>0:
+                    print("multa",cont)
+                    print("multa",multa[0])
+                    print("multa",multa[1])
+                    cont+=1
+        if lili==0:
+            print ("no se encontraron registros del vehiculo")
+            return 0
+def certificado(patente,registro):
+    patente=patente.upper()
+    lili=0
+    cont=1
+    for x in registros:
+        if patente==x[1]:
+            lili=1
+            print("----------------------------")
+            print("certificado de emision de contaminates")
+            print("patente",x[1])
+            print("dueño",x[4])
+            print("valor",x[7])
+            print("----------------------------")
+            print("certificado de anotaciones vogentes")
+            print("patente",x[1])
+            print("dueño",x[4])
+            print("valor",x[8])
+            print("----------------------------")
+            if len(x[6])==0:
+                print(" no hay multa en este vehiculo")
+            elif len(x[6])==1:
+                print(" su vehiculo tiene solo 1 multa")
+            else:
+                print("su vehiculo tiene mas multas")
+                for multa in x[6]:
+                    if len (multa)>0:
+                        print("multa",cont)
+                        print("multa",multa[0])
+                        print("multa",multa[1])
+                        cont+=1
+        if lili==0:
+            print ("no se encontraron registros del vehiculo")
+            return 0
+registros=[]
+menu=0
+while menu!=4:
+    print("1- grabar")
+    print("2- buscar")
+    print("3- imprimir certificado")
+    print("4- salir")
+    menu=iny(input("seleccione una opcion del menu"))
+    if menu<1 or menu>4:
+        print("opcion no valida")
+    if menu==1:
+        datos={"tipo":"x","patente":"x","marca":"x","precio":0,"dueño":"x","fecha":"x"}
+        multas=[]
+        pat=0
+        datos=["tipo"]=input("ingrese el tipo de vehiculo")
+        while pat==0:
+            datos=["patente"]=input("ingrese la patente: ")
+            pat=verificar_patente(datos["patente"])
+            if pat==0:
+                print("patente no valida, ingrese nuevamente")
+        while len(datos["marca"])<2 or len(datos["marca"])>15:
+            datos["marca"]=input("ingrese marca del vehiculo"):
+            if len(datos["marca"])<2 or len(datos["marca"])>15:
+                print("la marca debe de tener entre 2 a 15 caracteres")
+        while datos["precio"]<5000000:
+            datos["precio"]=int(input("ingrese el precio del vehiculo"))
+            if  datos["precio"]<5000000:
+                print("el precio debe superar los $5.000.000")
+        datos["dueño"]=input("ingrese el nombre del dueño del vehiculo")
+        while true:
+            datos["fecha"]=input("ingrese fecha de registro del vehiculo (AAAA/MM/DD)")
+            try:
+                fecha=datetime.strptime(datos["fecha"],'%y/%m/%d').strptime('%d/%m/%y')
+                print ("la fecha de registro del vehiculo es: ")
+                print(str(fecha))
+            except valueerror:
+                print("la fecha no es correcta")
+            else:
+                break
+        mult=int(input("tiene multa? n"))
+        
